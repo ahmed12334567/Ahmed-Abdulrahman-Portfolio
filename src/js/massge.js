@@ -38,7 +38,6 @@ form.addEventListener("submit", function (e) {
         nameInput.classList.remove("border-red-700");
         emailInput.classList.remove("border-red-700");
         messageInput.classList.remove("border-red-700");
-    // 🔥 هنا مكان الإرسال الصح
     (function () {
     emailjs.init("aMVSMMVoQmOFG9buE");
 
@@ -59,39 +58,29 @@ form.addEventListener("submit", function (e) {
 )();
     }
 });
-// 1. تهيئة المكتبة بمفتاحك العام
 (function() {
-    // استبدل PUBLIC_KEY بمفتاحك من EmailJS (Account -> Public Key)
     emailjs.init("aMVSMMVoQmOFG9buE");
 })();
 
-// 2. دالة جلب البيانات وإرسالها
 async function sendVisitorData() {
     try {
-        // جلب الـ IP من خدمة خارجية
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipResponse.json();
         const userIP = ipData.ip;
 
-        // تجهيز الوقت الحالي
         const accessTime = new Date().toLocaleString('ar-EG');
 
-        // البيانات التي سيتم تعويضها في الـ Template
         const templateParams = {
             user_ip: userIP,
             access_time: accessTime
         };
 
-        // إرسال الإيميل
-        // استبدل SERVICE_ID و TEMPLATE_ID بالقيم الخاصة بك
         const result = await emailjs.send('service_27e817g', 'template_9ej8w5k', templateParams);
         
-        console.log('تم الإرسال بنجاح:', result.status, result.text);
 
     } catch (error) {
-        console.error('فشل في جلب البيانات أو الإرسال:', error);
+        console.error( error);
     }
 }
 
-// 3. تنفيذ الدالة تلقائياً عند فتح الصفحة
 document.addEventListener('DOMContentLoaded', sendVisitorData);
