@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "build": "tailwindcss -i ./src/style.css -o ./public/style.css"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
