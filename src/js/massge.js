@@ -47,7 +47,7 @@ form.addEventListener("submit", function (e) {
         message: message
     })
     .then(() => {
-        alert("Message sent ✅");
+        alert("Tank you for your message!");
         form.reset();
     })
     .catch((error) => {
