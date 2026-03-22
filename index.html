@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Abdulrahman | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/css/output.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-kanit bg-gray-300 transition-all duration-300 text-black dark:bg-darkBlue dark:text-black">
+    <nav
+        class="nav fixed top-0 left-0 right-0 h-[80px] z-50 px-[40px] w-full flex items-center justify-between shadow-lg bg-gray-50 dark:bg-[#0d1b2a]/95">
+        <div class="itemsLeft">
+            <span
+                class="bg-gradient-to-r w-[150px] text-lg from-slate-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">Ahmed</span>
+        </div>
+        <div class="itemsMid">
+            <div class="links hidden md:block w-full ">
+                <a href="#about"
+                    class="text-black p-6 hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">About</a>
+                <a href="#skills"
+                    class="text-black p-6 hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">Skills</a>
+                <a href="#projects"
+                    class="text-black p-6 hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">projects</a>
+                <a href="#contact"
+                    class="text-black p-6 hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">Contact</a>
+            </div>
+        </div>
+        <div class="itemsRight flex items-center justify-center gap-[40px]">
+            <div class="theme">
+                <label for="switch" class="switch">
+                    <input id="switch" type="checkbox" />
+                    <span class="slider"></span>
+                    <span class="decoration"></span>
+                </label>
+            </div>
+            <div class="icons">
+                <button id="openMenu"
+                    class="block md:hidden fixed top-5 right-5 z-40 p-2 text-white bg-slate-800/50 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            <div id="sideMenu"
+                class="block md:hidden fixed top-[80px] left-0 w-[100%] h-[calc(75vh-80px)] z-40 bg-[#0d1b2a]/70 border-b border-white/10 rounded-b-[2rem] shadow-2xl transition-all duration-500 ease-in-out transform translate-y-[-100%] translate-x-[0%] opacity-0 pointer-events-none">
+
+                <div class="flex justify-between items-center p-8">
+                                <span
+                class="bg-gradient-to-r w-[150px] text-lg from-slate-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">Ahmed</span>
+                    <div class="flex gap-3">
+                        <button id="closeMenu"
+                            class="p-2 bg-white/5 rounded-xl text-white hover:bg-white/10 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <nav class="flex flex-col items-start px-12 gap-3 mt-2">
+                    <a href="#about"
+                        class="text-black px-5 py-3 w-full  hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">About</a>
+                    <a href="#skills"
+                        class="text-black px-5 py-3 w-full  hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">Skills</a>
+                    <a href="#projects"
+                        class="text-black px-5 py-3 w-full  hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">projects</a>
+                    <a href="#contact"
+                        class="text-black px-5 py-3 w-full  hover:bg-[#0055ff33] transition-all duration-150 dark:text-white rounded-[10px]">Contact</a>
+                </nav>
+
+                <div class="absolute bottom-6 w-full text-center">
+                <p class="text-center font-kanit text-gray-400 text-sm py-4">© 2026 Ahmed Abdulrahman. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </div>
+    <main id="mainContent" class="transition-all duration-500 pt-[50px]">
+        <div
+            class="hero md:h-[80vh] w-full flex flex-col md:flex-row items-center justify-center gap-10 px-6 py-5 md:px-15">
+
+            <div
+                class="float relative w-full max-w-[350px] aspect-square md:w-1/3 bg-[#0055ff33] p-3 rounded-[30px] shadow-xl">
+                <img src="public/٢٠٢٦٠١٣٠_١٨٠٠٣٩.jpg" alt="Ahmed Abdulrahman"
+                    class="img w-full h-full rounded-[20px] object-cover shadow-lg">
+            </div>
+
+            <div class=" text-center md:text-left md:max-w-[50%]">
+                <h1 class="text1 text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6">
+                    Hi, I'm <span class="text-blue-600">Ahmed Abdulrahman</span>
+                </h1>
+
+                <p class="text1 text-base md:text-lg text-gray-900 dark:text-gray-300 leading-relaxed">
+                    Ahmed Abdulrahman — a passionate developer who enjoys
+                    turning ideas into interactive digital experiences. I focus
+                    on building modern, responsive, and clean web interfaces
+                    using <span class="text1 font-semibold text-gray-800 dark:text-white">HTML, CSS, JavaScript, and
+                        Python</span>.Currently, I'm learning backend and databases.<span class="text1 font-semibold text-gray-800 dark:text-white">Node.js and SQL and Rest API</span>
+                    I’m constantly exploring new technologies and improving my skills by
+                    creating real projects and experimenting with tools like
+                    <span class="text-blue-500">Tailwind CSS</span>.
+                </p>
+
+                <p class="text1 text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
+                    For me, programming is not just about writing code — it’s about solving problems and building things
+                    that people can actually use.
+                </p>
+
+                <div class="mt-8">
+                    <a href="#projects"
+                        class="group bg-gradient-to-r py-[10px] px-[40px] from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden p-3 inline-flex items-center gap-2 hover:bg-[#174391]">
+                        View Work
+                        <i
+                            class="fa fa-arrow-right transition-transform duration-200 group-hover:translate-x-1"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="links2 flex items-center justify-center gap-6 mb-10">
+            <!-- From Uiverse.io by wilsondesouza -->
+            <ul class="example-2">
+                <li class="icon-content">
+                    <a href="https://www.linkedin.com/in/ahmed-abdulrahman-aa04493a1/" aria-label="LinkedIn"
+                        data-social="linkedin" target="_blank" rel="noopener noreferrer">
+                        <div class="filled"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-linkedin" viewBox="0 0 16 16" xml:space="preserve">
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                    <div class="tooltip">LinkedIn</div>
+                </li>
+                <li class="icon-content">
+                    <a href="https://github.com/ahmed12334567" aria-label="GitHub" data-social="github" target="_blank">
+                        <div class="filled"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-github" viewBox="0 0 16 16" xml:space="preserve">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                    <div class="tooltip">GitHub</div>
+                </li>
+                <li class="icon-content">
+                    <a href="https://www.instagram.com/ahmed.abdalrahmen.96?igsh=enhoamw0NGt1cWhj"
+                        aria-label="Instagram" data-social="instagram" target="_blank">
+                        <div class="filled"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16" xml:space="preserve">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                    <div class="tooltip">Instagram</div>
+                </li>
+                <li class="icon-content">
+                </li>
+            </ul>
+
+        </div>
+        <h2
+            class="about1 text-4xl md:text-5xl text-center m-4 font-kanit font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-white dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
+            ABOUT
+            ME</h2>
+        <div id="about" class="about grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-5 max-w-7xl mx-auto">
+            <div class="parsonInfo dg-white  rounded-2xl shadow-lg shadow-[#233f7733] text-white ">
+                <h2 class="text-lg px-[5px] font-bold "><i class="icon fa-regular fa-user"></i> Person Info</h2>
+                <div class="items name bg-[#334155] rounded-[10px]">
+                    <p class="text-sm "><i class="icon2 fa-regular fa-user"></i>
+                        My Name: </p><span class="font-semibold">Ahmed
+                        Abdulrahman</span>
+                </div>
+                <div class="items nationality bg-[#334155] rounded-[10px]">
+                    <p class="text-sm "><i class="icon2 fa-regular fa-user"></i>
+                        nationality: </p><span class="font-semibold">Egyptian</span>
+                </div>
+                <div class="items phone dark:bg-[#334155] rounded-[10px]">
+                    <p class="text-sm "><i class="icon2 fa-solid fa-phone"></i>
+                        Phone: </p><span class="font-semibold">+201557251961</span>
+                </div>
+                <div class="items lang dark:bg-[#334155] rounded-[10px]">
+                    <p class="text-sm "><i class="icon2 fa-regular fa-star"></i>
+                        Language: </p><span class="font-semibold">Arabic,
+                        English</span>
+                </div>
+            </div>
+            <div class="Achievements dark:text-white p-6 rounded-2xl shadow-lg shadow-[#233f7733] text-white">
+                <h2 class="text-lg px-[5px] text-black dark:text-white font-bold mb-2"><i
+                        class="icon fa-solid fa-award"></i>My Achievements</h2>
+                <div class=" flex items-center justify-center">
+
+                    <div class="cards">
+
+                        <!-- Card -->
+                        <div class="card bg-[#2a3b55] rounded-2xl p-8 text-center text-white relative">
+                            <h1 class="text-4xl font-bold">1-</h1>
+                            <p class="text-gray-300 mt-2">years of
+                                experience</p>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card bg-blue-500/20 rounded-2xl p-8 text-center text-white ">
+                            <h1 class="text-4xl font-bold">5+</h1>
+                            <p class="text-gray-300 mt-2">completed projects</p>
+
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card bg-[#2a3b55] rounded-2xl p-8 text-center text-white relative">
+                            <h1 class="text-4xl font-bold">1+</h1>
+                            <p class="text-gray-300 mt-2">happy customers</p>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card bg-[#2a3b55] rounded-2xl p-8 text-center text-white relative">
+                            <h1 class="text-4xl font-bold">1+</h1>
+                            <p class="text-gray-300 mt-2">awards won</p>
+                        </div>
+
+                    </div>
+                </div>
+                <span class="slash"></span>
+                <div class="ahmed w-full flex items-center justify-center gap-x-6 mt-10">
+                    <p class="text-sm"><i class="fa-solid fa-mug-hot"> </i>Coffee Lover</p>
+                    <p class="text-sm"><i class="fa-solid fa-code"></i> </i>clean code</p>
+                    <p class="text-sm"><i class="fa-regular fa-heart"></i></i>Passion Driven</p>
+                </div>
+            </div>
+        </div>
+        <h2
+            class="text-4xl md:text-5xl text-center m-[50px] font-kanit font-bold mb-4 bg-gradient-to-r  from-slate-900 via-blue-800 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
+            My SKILLS & Learning</h2>
+        <h3 class="text-2xl text-black font-bold dark:text-white px-[60px]"><i class="icon fa-solid fa-code"></i>
+            Frontend
+            Development</h3><span class="slash"></span>
+        <div id="skills" class="frontend skills grid grid-cols-1 md:grid-cols-2 gap-8 p-5 max-w-7xl md:mx-auto  mx-auto">
+
+            <div class="skill-container group bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white ">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-code text-[#10b981]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">HTML</h3>
+                            <p class="text-[#10b981] text-xs font-semibold">Expert</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-[#10b981]">98%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-[#10b981] rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="98%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-container bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-palette text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">CSS</h3>
+                            <p class="text-blue-500 text-xs font-semibold">Expert</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-blue-500">95%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-blue-500 rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="95%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-container group bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa fa-terminal text-[#10b981]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Java Script</h3>
+                            <p class="text-[#10b981] text-xs font-semibold">Advanced</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-[#10b981]">85%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-[#10b981] rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="85%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-container group bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-palette text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Bootstrap</h3>
+                            <p class="text-blue-500 text-xs font-semibold">Advanced</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-blue-500">80%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-blue-500 rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="80%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-container group bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa fa-search text-[#10b981]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">SEO & Accessibility</h3>
+                            <p class="text-[#10b981] text-xs font-semibold">Expert</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-[#10b981]">90%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-[#10b981] rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="90%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-container group bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-palette text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Tailwind</h3>
+                            <p class="text-blue-500 text-xs font-semibold">Intermediate</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-blue-500">75%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-blue-500 rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="75%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- backend development -->
+        <h3 class="text-2xl text-black font-bold dark:text-white px-[60px]"><i
+                class="icon fa fa-server bg-[#1a6b2b5d] text-[#10b918a9]"></i> Backend Development <span
+                class="bg-[#1f3352] px-[10px] text-[#1083b9] text-lg font-medium mr-2  py-1 rounded-full">learning</span>
+        </h3><span class="slash"></span>
+        <div class="backend skills grid grid-cols-1 md:grid-cols-2 gap-8 p-5 max-w-7xl mx-auto">
+
+            <div class="skill-container bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-server text-[#10b981]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Node Js</h3>
+                            <p class="text-[#10b981] text-xs font-semibold">Intermediate</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-[#10b981]">65%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-[#10b981] rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="65%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-container bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-server text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Express Js</h3>
+                            <p class="text-blue-500 text-xs font-semibold">Intermediate</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-blue-500">70%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-blue-500 rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="70%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-container bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa fa-database text-[#10b981]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">SQL</h3>
+                            <p class="text-[#10b981] text-xs font-semibold">Advanced</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-[#10b981]">85%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-[#10b981] rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="85%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-container bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                <div class="flex justify-between items-center mb-4 text-white">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-[#2d3748] p-2 rounded-lg">
+                            <i class="fa-solid fa-gear text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">REST API</h3>
+                            <p class="text-blue-500 text-xs font-semibold">Beginner</p>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-black text-blue-500">50%</div>
+                </div>
+
+                <div class="relative">
+                    <div class="h-3 w-full bg-[#2d3748] rounded-full overflow-hidden">
+                        <div class="skill-bar h-full bg-blue-500 rounded-full transition-all duration-[2000ms] ease-out"
+                            style="width: 0%" data-progress="50%">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-3 text-[10px] font-bold text-gray-500 uppercase tracking-tighter">
+                        <span>Beginner</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+        </div>
+        <div id="projects" class="projects px-[60px] mt-[50px] max-w-7xl mx-auto mb-[50px]">
+            <h1 class="text-4xl font-bold text-white text-center mb-10">Projects</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="project-card bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                    <h2 class="text-2xl font-bold text-white mb-4">first project</h2>
+                    <img src="public/Screenshot 2026-03-20 083226.png" alt="project one image"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-gray-400 mb-4">My first programming project tools used: HTML5 and CSS</p>
+                    <a href="https://ahmed12334567.github.io/My-website/" target="_blank"
+                        class="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden p-3 inline-flex items-center gap-2 hover:bg-[#174391]">
+                        View Project
+                        <i
+                            class="fa fa-arrow-right transition-transform duration-200 group-hover:translate-x-1"></i></a>
+                </div>
+                <div class="project-card bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                    <h2 class="text-2xl font-bold text-white mb-4">second project</h2>
+                    <img src="public/Screenshot 2026-03-20 083452.png" alt="project two image"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-gray-400 mb-4">My second programming project tools used: HTML and CSS and Javascript
+                    </p>
+                    <a href="https://ahmed12334567.github.io/onsite-3/" target="_blank"
+                        class="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden p-3 inline-flex items-center gap-2 hover:bg-[#174391]">
+                        View Project
+                        <i
+                            class="fa fa-arrow-right transition-transform duration-200 group-hover:translate-x-1"></i></a>
+                </div>
+                <div class="project-card bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                    <h2 class="text-2xl font-bold text-white mb-4">Third project</h2>
+                    <img src="public/Screenshot 2026-03-20 083519.png" alt="project two image"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-gray-400 mb-4">My third programming project tools used: HTML and CSS and Javascript
+                        and
+                        Bootstrap</p>
+                    <a href="https://ahmed12334567.github.io/onsit_5/" target="_blank"
+                        class="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden p-3 inline-flex items-center gap-2 hover:bg-[#174391]">
+                        View Project
+                        <i
+                            class="fa fa-arrow-right transition-transform duration-200 group-hover:translate-x-1"></i></a>
+                </div>
+                <div class="project-card bg-[#1e293b] p-6 rounded-2xl shadow-xl border border-white/5 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all duration-700">
+                    <h2 class="text-2xl font-bold text-white mb-4">Fourth project</h2>
+                    <img src="public/Screenshot 2026-03-20 083227.png" alt="project two image"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="text-gray-400 mb-4">My fourth programming project tools used: HTML and CSS and Javascript
+                        and
+                        Bootstrap and backend: Node.js Express Database: SQL</p>
+                    <a href="https://ahmed12334567.github.io/Kemet-AI/" target="_blank"
+                        class="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden p-3 inline-flex items-center gap-2 hover:bg-[#174391]">
+                        View Project
+                        <i
+                            class="fa fa-arrow-right transition-transform duration-200 group-hover:translate-x-1"></i></a>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="contact md:px-[30px] mt-[30px] max-w-7xl mx-auto mb-[50px]">
+            <h1 class="text-4xl font-bold text-white text-center mb-10">Contact Me</h1>
+            <div class="cardsContact grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
+                <div
+                    class="parsonContact dg-white dark:bg-[#1E293B] p-[30px] rounded-2xl shadow-lg shadow-[#0c132233] text-white ">
+                    <h2 class="text-lg px-[5px] font-bold mb-8"><i class="icon fa-regular fa-user"></i>Contact
+                        Information
+                    </h2>
+                    <div class="items1 name bg-[#334155] rounded-[10px] px-[20px] py-[10px] mt-4">
+                        <p class="text-lg  font-semibold"><i class="icon2 fa-solid fa-location-dot"></i>
+                            Address </p><span class=" block px-[40px] text-gray-400 ">Beni Suef - Egypt</span>
+                    </div>
+                    <div class="items1 name bg-[#334155] rounded-[10px] px-[20px] py-[10px] mt-4">
+                        <p class="text-lg  font-semibold"><i
+                                class="icon2 fa-solid fa-phone bg-[#2c4e52] text-[#4ADE80]"></i>
+                            Phone </p><span class=" block px-[40px] text-gray-400 ">+201557251961</span>
+                    </div>
+                    <div class="items1 name bg-[#334155] rounded-[10px] px-[20px] py-[10px] mt-4">
+                        <p class="text-lg  font-semibold"><i
+                                class="icon2 fa-solid fa-envelope bg-[#3b3061] text-[#C084FC]"></i>
+                            Email </p><a href="mailto:ahmedqabdulrahman123@gmail.com"
+                            class=" block px-[40px] text-gray-400 ">ahmedqabdulrahman123@gmail.com</a>
+                    </div>
+                </div>
+                <div class="formContact bg-[#1e293b] p-[30px] rounded-2xl shadow-lg shadow-[#0c132233] text-white ">
+                    <h2 class="text-lg px-[5px] font-bold mb-8"><i
+                            class="icon fa-solid fa-paper-plane font-bold"></i>Send
+                        Me A Message</h2>
+                    <form method="POST" id="form">
+                        <input type="text" name="name" id="name" class="input" placeholder="Name"
+                            class="w-full bg-transparent  p-3 mb-4 rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <input type="text" name="email" id="email" class="input" placeholder="Email"
+                            class="w-full p-3 mb-4 rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <textarea name="message" id="message" class="input" placeholder="Message"
+                            class="w-full p-3 mb-4 rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                        <button type="submit"
+                            class="group relative w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden ">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                            </div><span class="relative flex items-center justify-center gap-2"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-send group-hover:translate-x-1 transition-transform duration-300"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
+                                    </path>
+                                    <path d="m21.854 2.147-10.94 10.939"></path>
+                                </svg>Send Message</span>
+                        </button>
+                        <p id="erorr"
+                            class="hidden font-kanit p-[10px] mt-[15px] rounded-lg bg-red-900/20 text-red-500 border border-red-200 dark:border-red-700">
+                            <i class="fa-solid fa-triangle-exclamation mx-1"></i>Please fill all the fields or check
+                            your
+                            email
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="text-center font-kanit text-gray-400 text-sm py-4">© 2026 Ahmed Abdulrahman. All rights reserved.
+            </p>
+        </div>
+    </main>
+    <script src="src/index.js" defer></script>
+    <script src="src/js/massge.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</body>
+
+</html>
