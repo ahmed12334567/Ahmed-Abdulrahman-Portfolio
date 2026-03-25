@@ -51,7 +51,7 @@ form.addEventListener("submit", function (e) {
         form.reset();
     })
     .catch((error) => {
-        alert("Error ❌");
+        alert("Error sending message. Please try again later.");
         console.log(error);
     });
 }
@@ -63,24 +63,26 @@ form.addEventListener("submit", function (e) {
 })();
 
 async function sendVisitorData() {
+    if (sessionStorage.getItem('is_reported')) {
+        return; 
+    }
+
     try {
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipResponse.json();
         const userIP = ipData.ip;
-
-        const accessTime = new Date().toLocaleString('ar-EG');
+        const accessTime = new Date()
 
         const templateParams = {
             user_ip: userIP,
             access_time: accessTime
         };
 
-        const result = await emailjs.send('service_27e817g', 'template_9ej8w5k', templateParams);
-        
+        await emailjs.send('service_qzalf55', 'template_9ej8w5k', templateParams);
+        sessionStorage.setItem('is_reported', 'true');
 
     } catch (error) {
-        console.error( error);
+        console.error('Error sending visitor data:', error);
     }
 }
-
-document.addEventListener('DOMContentLoaded', sendVisitorData);
+sendVisitorData();

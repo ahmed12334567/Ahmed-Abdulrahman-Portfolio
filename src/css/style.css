@@ -430,3 +430,9 @@ ul {
 #burger-checkbox:checked + .burger span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+#text {
+  color: #1E293B;
+}
+.dark #text {
+  color: #b3bcd6;
+}
