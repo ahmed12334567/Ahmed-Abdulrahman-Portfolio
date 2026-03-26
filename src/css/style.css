@@ -435,3 +435,22 @@ ul {
 .dark #text {
   color: #b3bcd6;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #202936; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a4758; 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

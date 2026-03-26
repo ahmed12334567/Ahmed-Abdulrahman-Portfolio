@@ -39,9 +39,9 @@ form.addEventListener("submit", function (e) {
         emailInput.classList.remove("border-red-700");
         messageInput.classList.remove("border-red-700");
     (function () {
-    emailjs.init("aMVSMMVoQmOFG9buE");
+    emailjs.init("YNvJWxkSbX9Zh9wJq");
 
-    emailjs.send("service_27e817g", "template_1pxyi9o", {
+    emailjs.send("service_xoykacu", "template_dha2s1j", {
         name: name,
         email: email,
         message: message
@@ -59,7 +59,7 @@ form.addEventListener("submit", function (e) {
     }
 });
 (function() {
-    emailjs.init("aMVSMMVoQmOFG9buE");
+    emailjs.init("YNvJWxkSbX9Zh9wJq");
 })();
 
 async function sendVisitorData() {
@@ -71,14 +71,14 @@ async function sendVisitorData() {
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipResponse.json();
         const userIP = ipData.ip;
-        const accessTime = new Date()
+        const accessTime = new Date().toLocaleString();
 
         const templateParams = {
             user_ip: userIP,
             access_time: accessTime
         };
 
-        await emailjs.send('service_qzalf55', 'template_9ej8w5k', templateParams);
+        await emailjs.send('service_xoykacu', 'template_hlpx1mq', templateParams);
         sessionStorage.setItem('is_reported', 'true');
 
     } catch (error) {

@@ -48,20 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
 const openBtn = document.getElementById('openMenu');
 const closeBtn = document.getElementById('closeMenu');
 const menu = document.getElementById('sideMenu');
-const mainContent = document.getElementById('mainContent'); // العنصر اللي هيتغبش
+const mainContent = document.getElementById('mainContent');
 
 openBtn.addEventListener('click', () => {
     menu.classList.remove('translate-y-[-100%]', 'opacity-0', 'pointer-events-none');
     menu.classList.add('translate-y-0', 'opacity-100');
 
     mainContent.classList.add('blur-md', 'brightness-50'); 
-    document.body.style.overflow = 'auto'; // مهم
+    document.body.style.overflow = 'auto';
 });
 
 closeBtn.addEventListener('click', () => {
     menu.classList.remove('translate-y-0', 'opacity-100');
     menu.classList.add('translate-y-[-100%]', 'opacity-0', 'pointer-events-none');
-    document.body.style.overflow = 'auto'; // مهم
+    document.body.style.overflow = 'auto';
     mainContent.classList.remove('blur-md', 'brightness-50');
 });
 document.querySelectorAll('#sideMenu a').forEach(link => {
@@ -90,3 +90,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+let scrollUpBtn = document.getElementById("scrolUp");
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 350) {
+        scrollUpBtn.classList.remove("hidden");
+    } else {
+        scrollUpBtn.classList.add("hidden");
+    }
+});
+scrollUpBtn.addEventListener("click", ()=> {
+    window.scrollTo({
+        top: 0
+    });
+})
