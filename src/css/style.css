@@ -1,5 +1,8 @@
-/* From Uiverse.io by juanpabl0svn */
-/* The switch - the box around the slider */
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}
 .switch {
   font-size: 17px;
   position: relative;
