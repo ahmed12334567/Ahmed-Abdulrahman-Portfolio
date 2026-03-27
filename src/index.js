@@ -123,3 +123,34 @@ document.onkeydown = function(e) {
 document.addEventListener('contextmenu', function(e) {
   e.preventDefault();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    
+    const runCounter = (el) => {
+        const target = +el.getAttribute('data-target');
+        const count = +el.innerText.replace('%', ''); 
+        
+        const speed = 200; 
+        const increment = target / speed;
+
+        if (count < target) {
+            const newValue = Math.ceil(count + increment);
+            el.innerText = newValue + "%"; 
+            
+            setTimeout(() => runCounter(el), 10);
+        } else {
+            el.innerText = target + "%"; 
+        }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                runCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+});
