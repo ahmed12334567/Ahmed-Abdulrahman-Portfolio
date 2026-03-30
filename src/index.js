@@ -20,7 +20,6 @@ if (localStorage.getItem('theme') === 'light') {
     togglerTheme.checked = false;
 }
 document.addEventListener("DOMContentLoaded", () => {
-
     const options = {
         threshold: 0.3
     };
