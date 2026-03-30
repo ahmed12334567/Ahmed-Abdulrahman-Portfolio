@@ -8,11 +8,11 @@ form.addEventListener("submit", function (e) {
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
     let message = document.getElementById("message").value.trim();
-    let erorr = document.getElementById("erorr");
+    let error = document.getElementById("error");
     let valid = true;
 
     if (name === "" || email === "" || message === "") {
-        erorr.classList.remove("hidden");
+        error.classList.remove("hidden");
         nameInput.classList.add("border-red-700");
         emailInput.classList.add("border-red-700");
         messageInput.classList.add("border-red-700");
@@ -20,13 +20,13 @@ form.addEventListener("submit", function (e) {
     }
 
     if (name.length < 3) {
-        erorr.classList.remove("hidden");
+        error.classList.remove("hidden");
         nameInput.classList.add("border-red-700");
         valid = false;
     }
 
     if (!/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})+$/.test(email)) {
-        erorr.classList.remove("hidden");
+        error.classList.remove("hidden");
         emailInput.classList.add("border-red-700");
         valid = false;
     }
@@ -34,7 +34,7 @@ form.addEventListener("submit", function (e) {
         return;
     }
     else {
-        erorr.classList.add("hidden");
+        error.classList.add("hidden");
         nameInput.classList.remove("border-red-700");
         emailInput.classList.remove("border-red-700");
         messageInput.classList.remove("border-red-700");
@@ -47,7 +47,7 @@ form.addEventListener("submit", function (e) {
         message: message
     })
     .then(() => {
-        alert("Tank you for your message!");
+        alert("Thank you for your message!");
         form.reset();
     })
     .catch((error) => {
@@ -58,31 +58,3 @@ form.addEventListener("submit", function (e) {
 )();
     }
 });
-(function() {
-    emailjs.init("YNvJWxkSbX9Zh9wJq");
-})();
-
-async function sendVisitorData() {
-    if (sessionStorage.getItem('is_reported')) {
-        return; 
-    }
-
-    try {
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        const userIP = ipData.ip;
-        const accessTime = new Date().toLocaleString();
-
-        const templateParams = {
-            user_ip: userIP,
-            access_time: accessTime
-        };
-
-        await emailjs.send('service_xoykacu', 'template_hlpx1mq', templateParams);
-        sessionStorage.setItem('is_reported', 'true');
-
-    } catch (error) {
-        console.error('Error sending visitor data:', error);
-    }
-}
-sendVisitorData();
