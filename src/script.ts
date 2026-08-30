@@ -264,7 +264,7 @@ function initSmoothScroll(): void {
    Scroll reveal via Intersection Observer
    ========================================================= */
 function initReveal(): void {
-  const els = document.querySelectorAll('.reveal');
+  const els = document.querySelectorAll('.reveal, .stagger-children');
   if (!('IntersectionObserver' in window)) {
     els.forEach((el) => el.classList.add('visible'));
     return;
@@ -278,7 +278,7 @@ function initReveal(): void {
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
   els.forEach((el) => observer.observe(el));
 }
@@ -289,7 +289,10 @@ function initReveal(): void {
 function initProgressBars(): void {
   const fills = document.querySelectorAll<HTMLElement>('.progress-fill');
   if (!fills.length || !('IntersectionObserver' in window)) {
-    fills.forEach((f) => (f.style.width = f.dataset.progress + '%'));
+    fills.forEach((f) => {
+      f.style.width = f.dataset.progress + '%';
+      f.classList.add('animated');
+    });
     return;
   }
   const observer = new IntersectionObserver(
@@ -298,6 +301,7 @@ function initProgressBars(): void {
         if (entry.isIntersecting) {
           const el = entry.target as HTMLElement;
           el.style.width = (el.dataset.progress ?? '0') + '%';
+          window.setTimeout(() => el.classList.add('animated'), 1200);
           obs.unobserve(el);
         }
       });
@@ -305,6 +309,63 @@ function initProgressBars(): void {
     { threshold: 0.3 }
   );
   fills.forEach((f) => observer.observe(f));
+}
+
+/* =========================================================
+   Hero entrance animations
+   ========================================================= */
+function initHeroReveal(): void {
+  const heroEls = document.querySelectorAll('.hero-text-reveal, .hero-image-reveal');
+  // Trigger after a short delay so the page feels alive
+  window.setTimeout(() => {
+    heroEls.forEach((el) => el.classList.add('visible'));
+  }, 150);
+}
+
+/* =========================================================
+   Floating particles in hero
+   ========================================================= */
+function initHeroParticles(): void {
+  const container = document.getElementById('hero-particles');
+  if (!container || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const count = 20;
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('hero-particle');
+    const size = Math.random() * 4 + 2;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+    particle.style.animationDelay = Math.random() * 10 + 's';
+    particle.style.opacity = (Math.random() * 0.4 + 0.1).toString();
+    container.appendChild(particle);
+  }
+}
+
+/* =========================================================
+   Active nav link tracking on scroll
+   ========================================================= */
+function initActiveNav(): void {
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    },
+    { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
+  );
+  sections.forEach((s) => observer.observe(s));
 }
 
 /* =========================================================
@@ -425,7 +486,10 @@ function boot(): void {
   initNavbarScroll();
   initSmoothScroll();
   initReveal();
+  initHeroReveal();
+  initHeroParticles();
   initProgressBars();
+  initActiveNav();
   initContactForm();
   initYear();
 }

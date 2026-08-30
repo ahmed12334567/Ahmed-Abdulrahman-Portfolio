@@ -147,38 +147,39 @@
         <!-- =================== Hero Section =================== -->
         <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
             <div class="absolute inset-0 -z-10 hero-glow"></div>
+            <div class="hero-particles" id="hero-particles"></div>
             <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center w-full">
                 <!-- Text -->
-                <div class="reveal">
+                <div>
                     <span
-                        class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 mb-6">
+                        class="hero-text-reveal delay-1 inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 mb-6">
                         <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse-dot"></span>
                         Open to opportunities
                     </span>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
+                    <h1 class="hero-text-reveal delay-2 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
                         Hi, I'm Ahmed Abdulrahman.
                     </h1>
-                    <p class="mt-3 text-xl sm:text-2xl font-medium text-accent-600 dark:text-accent-400">
+                    <p class="hero-text-reveal delay-3 mt-3 text-xl sm:text-2xl font-semibold text-gradient">
                         Backend Developer | Node.js &amp; TypeScript Specialist
                     </p>
-                    <p class="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                    <p class="hero-text-reveal delay-4 mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
                         I design and build scalable, secure backend systems — clean APIs, well-structured databases, and
                         reliable infrastructure that lets products grow without breaking.
                     </p>
 
-                    <div class="mt-8 flex flex-wrap gap-4">
+                    <div class="hero-text-reveal delay-5 mt-8 flex flex-wrap gap-4">
                         <a href="#projects"
-                            class="px-6 py-3 rounded-full bg-accent-500 text-white font-semibold text-sm hover:bg-accent-600 transition-colors shadow-lg shadow-accent-500/20">
+                            class="cta-primary px-6 py-3 rounded-full bg-accent-500 text-white font-semibold text-sm hover:bg-accent-600 shadow-lg shadow-accent-500/20">
                             View Projects
                         </a>
                         <a href="#" download
-                            class="px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold text-sm hover:border-accent-500 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                            class="cta-secondary px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold text-sm hover:text-accent-600 dark:hover:text-accent-400">
                             Download CV
                         </a>
                     </div>
 
                     <!-- Social icons -->
-                    <div class="mt-8 flex items-center gap-4">
+                    <div class="hero-text-reveal delay-6 mt-8 flex items-center gap-4">
                         <a href="https://github.com/ahmed12334567" target="_blank" rel="noopener" aria-label="GitHub"
                             class="social-icon">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -203,12 +204,12 @@
                 </div>
 
                 <!-- Profile photo -->
-                <div class="reveal flex justify-center md:justify-end">
-                    <div class="relative">
-                        <div class="absolute -inset-4 rounded-full bg-accent-500/20 blur-2xl"></div>
+                <div class="hero-image-reveal flex justify-center md:justify-end">
+                    <div class="relative profile-float">
+                        <div class="absolute -inset-4 rounded-full bg-accent-500/20 blur-2xl ring-glow"></div>
                         <img src="/image.png"
                             alt="Portrait of Ahmed Abdulrahman, backend developer"
-                            class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover ring-4 ring-accent-500/40 shadow-2xl" />
+                            class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover ring-4 ring-accent-500/40 ring-glow" />
                     </div>
                 </div>
             </div>
@@ -229,7 +230,7 @@
                     <p
                         class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
                         About Me</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Building the systems
+                    <h2 class="section-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Building the systems
                         behind great products.</h2>
                     <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                         I'm a backend developer with a focus on Node.js, Express, and TypeScript. I care about the parts
@@ -244,13 +245,13 @@
                 </div>
 
                 <!-- Stats row -->
-                <div class="reveal mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="reveal stagger-children mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div class="stat-card">
-                        <p class="text-4xl font-bold text-accent-500">20+</p>
+                        <p class="text-4xl font-bold text-accent-500">5+</p>
                         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Projects shipped</p>
                     </div>
                     <div class="stat-card">
-                        <p class="text-4xl font-bold text-accent-500">35</p>
+                        <p class="text-4xl font-bold text-accent-500">5</p>
                         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">GitHub repositories</p>
                     </div>
                     <div class="stat-card">
@@ -268,13 +269,13 @@
                     <p
                         class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
                         Tech Stack</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I work with every
+                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I work with every
                         day.</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">The tools I've mastered and reach for to ship
                         production backend systems.</p>
                 </div>
 
-                <div class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5" id="stack-grid"></div>
+                <div class="reveal stagger-children grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5" id="stack-grid"></div>
             </div>
         </section>
 
@@ -285,12 +286,12 @@
                     <p
                         class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
                         Always Growing</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Currently exploring.</h2>
+                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Currently exploring.</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Technologies I'm actively learning to broaden
                         into full-stack and cloud-native systems.</p>
                 </div>
 
-                <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="learning-grid"></div>
+                <div class="reveal stagger-children grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="learning-grid"></div>
             </div>
         </section>
 
@@ -301,13 +302,13 @@
                     <p
                         class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
                         Featured Projects</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Selected backend work.
+                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Selected backend work.
                     </h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">A few projects that show how I approach API
                         design, auth, and data modeling.</p>
                 </div>
 
-                <div class="reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid"></div>
+                <div class="reveal stagger-children grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid"></div>
             </div>
         </section>
 
@@ -318,11 +319,11 @@
                     <p
                         class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
                         Why Work With Me</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I bring to a team.
+                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I bring to a team.
                     </h2>
                 </div>
 
-                <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="why-grid"></div>
+                <div class="reveal stagger-children grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="why-grid"></div>
             </div>
         </section>
 
@@ -333,7 +334,7 @@
                     <p
                         class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
                         Contact</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Let's build something
+                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Let's build something
                         solid.</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Have a role or a project in mind? I read every
                         message.</p>
