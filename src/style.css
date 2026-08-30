@@ -1,0 +1,366 @@
+/* =================== Custom component styles =================== */
+
+/* Nav links */
+.nav-link {
+  color: inherit;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #10b981;
+  transition: width 0.25s ease;
+}
+.nav-link:hover {
+  color: #10b981;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Social icons */
+.social-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(226 232 240); /* slate-200 */
+  color: rgb(71 85 105); /* slate-600 */
+  transition: all 0.2s ease;
+}
+.dark .social-icon {
+  border-color: rgb(30 41 59); /* slate-800 */
+  color: rgb(148 163 184); /* slate-400 */
+}
+.social-icon:hover {
+  color: #059669; /* accent-600 */
+  border-color: #10b981;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgba(16, 185, 129, 0.5);
+}
+
+/* Stat cards */
+.stat-card {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: rgb(248 250 252); /* slate-50 */
+  border: 1px solid rgb(226 232 240);
+  transition: all 0.25s ease;
+}
+.dark .stat-card {
+  background: rgb(15 23 42 / 0.5); /* slate-900/50 */
+  border-color: rgb(30 41 59);
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #10b981;
+  box-shadow: 0 12px 30px -12px rgba(16, 185, 129, 0.35);
+}
+
+/* Tech stack cards */
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  transition: all 0.25s ease;
+}
+.dark .tech-card {
+  background: rgb(15 23 42 / 0.6);
+  border-color: rgb(30 41 59);
+}
+.tech-card:hover {
+  transform: translateY(-6px);
+  border-color: #10b981;
+  box-shadow: 0 16px 36px -16px rgba(16, 185, 129, 0.45);
+}
+.tech-card img {
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.25s ease;
+}
+.dark .tech-card img[src*="express"],
+.dark .tech-card img[src*="github"] {
+  filter: invert(1);
+}
+.tech-card:hover img {
+  transform: scale(1.12);
+}
+
+/* Learning cards — dashed, growth-oriented */
+.learning-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 2px dashed rgb(148 163 184 / 0.6); /* slate-400/60 */
+  background: rgb(248 250 252 / 0.5);
+  transition: all 0.25s ease;
+}
+.dark .learning-card {
+  background: rgb(15 23 42 / 0.4);
+  border-color: rgb(71 85 105 / 0.5);
+}
+.learning-card:hover {
+  border-color: #10b981;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -16px rgba(16, 185, 129, 0.4);
+}
+.learning-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  background: rgb(251 191 36 / 0.15); /* amber-400/15 */
+  color: rgb(217 119 6); /* amber-600 */
+}
+.dark .learning-badge {
+  color: rgb(252 211 77); /* amber-300 */
+}
+.progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgb(226 232 240);
+  overflow: hidden;
+}
+.dark .progress-track {
+  background: rgb(30 41 59);
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #34d399, #10b981);
+  width: 0;
+  transition: width 1s ease;
+}
+
+/* Project cards */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  transition: all 0.3s ease;
+}
+.dark .project-card {
+  background: rgb(15 23 42 / 0.6);
+  border-color: rgb(30 41 59);
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #10b981;
+  box-shadow: 0 20px 40px -20px rgba(16, 185, 129, 0.4);
+}
+.project-thumb {
+  height: 11rem;
+  background: linear-gradient(135deg, #064e3b, #047857);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-thumb::before {
+  content: '';
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  filter: blur(12px);
+  pointer-events: none;
+}
+.project-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15), transparent 60%);
+  pointer-events: none;
+}
+.project-thumb svg {
+  width: 3.5rem;
+  height: 3.5rem;
+  opacity: 0.95;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+}
+.project-card:hover .project-thumb svg {
+  transform: scale(1.15) rotate(4deg);
+}
+.tech-pill {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgb(16 185 129 / 0.1);
+  color: #059669;
+}
+.dark .tech-pill {
+  color: #34d399;
+}
+
+/* Why-me cards */
+.why-card {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  transition: all 0.25s ease;
+}
+.dark .why-card {
+  background: rgb(15 23 42 / 0.5);
+  border-color: rgb(30 41 59);
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: #10b981;
+  box-shadow: 0 12px 30px -16px rgba(16, 185, 129, 0.4);
+}
+.why-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: rgb(16 185 129 / 0.1);
+  color: #059669;
+  margin-bottom: 1rem;
+}
+.dark .why-icon-wrap {
+  color: #34d399;
+}
+
+/* Contact links */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: white;
+  border: 1px solid rgb(226 232 240);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.dark .contact-link {
+  background: rgb(15 23 42 / 0.5);
+  border-color: rgb(30 41 59);
+}
+.contact-link:hover {
+  border-color: #10b981;
+  transform: translateX(4px);
+}
+.contact-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  background: rgb(16 185 129 / 0.1);
+  color: #059669;
+  flex-shrink: 0;
+}
+.dark .contact-icon-wrap {
+  color: #34d399;
+}
+
+/* Form */
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(71 85 105);
+  margin-bottom: 0.4rem;
+}
+.dark .form-label {
+  color: rgb(148 163 184);
+}
+.form-input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgb(203 213 225); /* slate-300 */
+  background: rgb(248 250 252);
+  color: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+.dark .form-input {
+  background: rgb(15 23 42);
+  border-color: rgb(51 65 85);
+}
+.form-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+.form-input.invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+.form-error {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+  min-height: 1rem;
+}
+
+/* Hero glow background */
+.hero-glow {
+  background:
+    radial-gradient(60% 50% at 80% 20%, rgba(16, 185, 129, 0.12), transparent 70%),
+    radial-gradient(50% 40% at 10% 80%, rgba(16, 185, 129, 0.08), transparent 70%);
+}
+
+/* Navbar scrolled state */
+#navbar.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(226 232 240);
+}
+.dark #navbar.scrolled {
+  background: rgba(2, 6, 23, 0.85);
+  border-bottom-color: rgb(30 41 59);
+}
+
+/* =================== Scroll reveal animations =================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-bounce,
+  .animate-pulse-dot {
+    animation: none !important;
+  }
+}
