@@ -26,10 +26,10 @@
     <meta name="twitter:title" content="Ahmed Abdulrahman — Backend Developer" />
     <meta name="twitter:description" content="Backend developer specializing in Node.js, Express, and TypeScript." />
 
-    <!-- Custom Google Font: Space Grotesk -->
+    <!-- Custom Google Font: Space Grotesk + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" />
 
     <!-- Tailwind CSS via CDN -->
@@ -40,7 +40,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         accent: {
@@ -78,17 +79,20 @@
 </head>
 
 <body
-    class="font-sans bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 antialiased transition-colors duration-300">
+    class="font-sans bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200 antialiased transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Scroll progress -->
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
     <!-- =================== Navigation =================== -->
-    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-        <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#hero" class="font-bold text-lg tracking-tight text-slate-900 dark:text-white">
+    <header id="navbar" class="navbar-enter fixed top-0 inset-x-0 z-50 transition-all duration-300">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+            <a href="#hero" class="font-display font-bold text-sm sm:text-lg tracking-tight text-slate-900 dark:text-white shrink min-w-0">
                 Ahmed<span class="text-accent-500">.</span>Abdulrahman
             </a>
 
             <!-- Desktop nav -->
-            <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <ul class="hidden md:flex items-center gap-7 text-sm font-medium">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#stack" class="nav-link">Tech Stack</a></li>
                 <li><a href="#learning" class="nav-link">Learning</a></li>
@@ -97,7 +101,11 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
 
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="#contact" class="nav-cta hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500 text-white text-xs font-semibold hover:bg-accent-600 transition-all">
+                    Hire Me
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
                 <!-- Dark / Light toggle -->
                 <button id="theme-toggle" aria-label="Toggle dark mode"
                     class="w-10 h-10 grid place-items-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">
@@ -127,7 +135,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu"
             class="md:hidden hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur border-b border-slate-200 dark:border-slate-800">
-            <ul class="px-6 py-4 flex flex-col gap-1 text-sm font-medium">
+            <ul class="px-4 sm:px-6 py-4 flex flex-col gap-1 text-sm font-medium">
                 <li><a href="#about"
                         class="mobile-link block py-3 border-b border-slate-100 dark:border-slate-900">About</a></li>
                 <li><a href="#stack" class="mobile-link block py-3 border-b border-slate-100 dark:border-slate-900">Tech
@@ -145,41 +153,43 @@
 
     <main>
         <!-- =================== Hero Section =================== -->
-        <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+        <section id="hero" class="relative min-h-[100dvh] flex items-center pt-16 pb-20 sm:pb-12 md:pb-0 overflow-hidden">
             <div class="absolute inset-0 -z-10 hero-glow"></div>
+            <div class="absolute inset-0 -z-10 hero-grid opacity-40 dark:opacity-25"></div>
             <div class="hero-particles" id="hero-particles"></div>
-            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center w-full">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
                 <!-- Text -->
-                <div>
+                <div class="hero-content">
                     <span
-                        class="hero-text-reveal delay-1 inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 mb-6">
+                        class="hero-text-reveal delay-1 status-badge inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 mb-6 backdrop-blur-sm border border-accent-500/20">
                         <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse-dot"></span>
-                        Open to opportunities
+                        Available for hire
                     </span>
-                    <h1 class="hero-text-reveal delay-2 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
-                        Hi, I'm Ahmed Abdulrahman.
+                    <h1 class="hero-text-reveal delay-2 hero-title font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] text-slate-900 dark:text-white">
+                        Building reliable<br class="hidden sm:block" /> backends for <span class="hero-name">modern products</span>.
                     </h1>
-                    <p class="hero-text-reveal delay-3 mt-3 text-xl sm:text-2xl font-semibold text-gradient">
-                        Backend Developer | Node.js &amp; TypeScript Specialist
+                    <p class="hero-text-reveal delay-3 mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                        I'm <strong class="font-semibold text-slate-800 dark:text-slate-200">Ahmed Abdulrahman</strong> — a backend developer specializing in
+                        <span id="hero-role" class="text-gradient text-gradient-animate font-semibold">Node.js &amp; TypeScript</span>.
                     </p>
-                    <p class="hero-text-reveal delay-4 mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-                        I design and build scalable, secure backend systems — clean APIs, well-structured databases, and
-                        reliable infrastructure that lets products grow without breaking.
+                    <p class="hero-text-reveal delay-4 mt-3 text-sm sm:text-base text-slate-500 dark:text-slate-500 max-w-lg leading-relaxed">
+                        Scalable APIs, secure authentication, and clean database architecture — engineered for production from day one.
                     </p>
 
-                    <div class="hero-text-reveal delay-5 mt-8 flex flex-wrap gap-4">
+                    <div class="hero-text-reveal delay-5 mt-8 flex flex-wrap gap-3 hero-cta-group">
                         <a href="#projects"
-                            class="cta-primary px-6 py-3 rounded-full bg-accent-500 text-white font-semibold text-sm hover:bg-accent-600 shadow-lg shadow-accent-500/20">
+                            class="cta-primary group px-6 py-3 rounded-full bg-accent-500 text-white font-semibold text-sm hover:bg-accent-600 shadow-lg shadow-accent-500/20 inline-flex items-center gap-2">
                             View Projects
+                            <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
                         </a>
-                        <a href="#" download
+                        <a href="#contact"
                             class="cta-secondary px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold text-sm hover:text-accent-600 dark:hover:text-accent-400">
-                            Download CV
+                            Get in Touch
                         </a>
                     </div>
 
                     <!-- Social icons -->
-                    <div class="hero-text-reveal delay-6 mt-8 flex items-center gap-4">
+                    <div class="hero-text-reveal delay-6 mt-8 flex items-center gap-4 hero-socials">
                         <a href="https://github.com/ahmed12334567" target="_blank" rel="noopener" aria-label="GitHub"
                             class="social-icon">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -204,33 +214,32 @@
                 </div>
 
                 <!-- Profile photo -->
-                <div class="hero-image-reveal flex justify-center md:justify-end">
-                    <div class="relative profile-float">
+                <div class="hero-image-reveal flex justify-center md:justify-end mt-6 md:mt-0">
+                    <div class="relative profile-float" id="hero-profile">
+                        <div class="hero-orbit hero-orbit-1"></div>
+                        <div class="hero-orbit hero-orbit-2"></div>
                         <div class="absolute -inset-4 rounded-full bg-accent-500/20 blur-2xl ring-glow"></div>
                         <img src="/image.png"
                             alt="Portrait of Ahmed Abdulrahman, backend developer"
-                            class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover ring-4 ring-accent-500/40 ring-glow" />
+                            class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover ring-4 ring-accent-500/40 ring-glow hero-profile-img" />
                     </div>
                 </div>
             </div>
 
             <a href="#about" aria-label="Scroll to about"
-                class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 hover:text-accent-500 transition-colors">
-                <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
+                class="hero-scroll-reveal absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 hover:text-accent-500 transition-colors">
+                <span class="hero-scroll-mouse">
+                    <span class="hero-scroll-wheel"></span>
+                </span>
             </a>
         </section>
 
         <!-- =================== About Me =================== -->
-        <section id="about" class="py-24 sm:py-32">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="reveal max-w-3xl">
-                    <p
-                        class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
-                        About Me</p>
-                    <h2 class="section-heading text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Building the systems
+        <section id="about" class="section-block py-16 sm:py-24 lg:py-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="reveal-left max-w-3xl">
+                    <p class="section-label">01 — About</p>
+                    <h2 class="section-heading font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Building the systems
                         behind great products.</h2>
                     <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                         I'm a backend developer with a focus on Node.js, Express, and TypeScript. I care about the parts
@@ -246,16 +255,16 @@
 
                 <!-- Stats row -->
                 <div class="reveal stagger-children mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div class="stat-card">
-                        <p class="text-4xl font-bold text-accent-500">5+</p>
+                    <div class="stat-card tilt-card">
+                        <p class="text-4xl font-display font-bold text-accent-500"><span class="stat-counter" data-target="5" data-suffix="+">0</span></p>
                         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Projects shipped</p>
                     </div>
-                    <div class="stat-card">
-                        <p class="text-4xl font-bold text-accent-500">5</p>
+                    <div class="stat-card tilt-card">
+                        <p class="text-4xl font-display font-bold text-accent-500"><span class="stat-counter" data-target="5">0</span></p>
                         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">GitHub repositories</p>
                     </div>
-                    <div class="stat-card">
-                        <p class="text-4xl font-bold text-accent-500">100%</p>
+                    <div class="stat-card tilt-card">
+                        <p class="text-4xl font-display font-bold text-accent-500"><span class="stat-counter" data-target="100" data-suffix="%">0</span></p>
                         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Backend focused</p>
                     </div>
                 </div>
@@ -263,13 +272,11 @@
         </section>
 
         <!-- =================== Tech Stack =================== -->
-        <section id="stack" class="py-24 sm:py-32 bg-slate-50 dark:bg-slate-900/40">
-            <div class="max-w-6xl mx-auto px-6">
+        <section id="stack" class="section-block py-16 sm:py-24 lg:py-32 bg-slate-50/80 dark:bg-slate-900/40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="reveal text-center max-w-2xl mx-auto mb-14">
-                    <p
-                        class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
-                        Tech Stack</p>
-                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I work with every
+                    <p class="section-label section-label-center">02 — Tech Stack</p>
+                    <h2 class="section-heading text-center font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I work with every
                         day.</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">The tools I've mastered and reach for to ship
                         production backend systems.</p>
@@ -280,13 +287,11 @@
         </section>
 
         <!-- =================== Currently Learning =================== -->
-        <section id="learning" class="py-24 sm:py-32">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="reveal text-center max-w-2xl mx-auto mb-14">
-                    <p
-                        class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
-                        Always Growing</p>
-                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Currently exploring.</h2>
+        <section id="learning" class="section-block py-16 sm:py-24 lg:py-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="reveal-right text-center max-w-2xl mx-auto mb-14">
+                    <p class="section-label section-label-center">03 — Growth</p>
+                    <h2 class="section-heading text-center font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Currently exploring.</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Technologies I'm actively learning to broaden
                         into full-stack and cloud-native systems.</p>
                 </div>
@@ -296,13 +301,11 @@
         </section>
 
         <!-- =================== Featured Projects =================== -->
-        <section id="projects" class="py-24 sm:py-32 bg-slate-50 dark:bg-slate-900/40">
-            <div class="max-w-6xl mx-auto px-6">
+        <section id="projects" class="section-block py-16 sm:py-24 lg:py-32 bg-slate-50/80 dark:bg-slate-900/40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="reveal text-center max-w-2xl mx-auto mb-14">
-                    <p
-                        class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
-                        Featured Projects</p>
-                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Selected backend work.
+                    <p class="section-label section-label-center">04 — Projects</p>
+                    <h2 class="section-heading text-center font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Selected backend work.
                     </h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">A few projects that show how I approach API
                         design, auth, and data modeling.</p>
@@ -313,13 +316,11 @@
         </section>
 
         <!-- =================== Why Work With Me =================== -->
-        <section id="why" class="py-24 sm:py-32">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="reveal text-center max-w-2xl mx-auto mb-14">
-                    <p
-                        class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
-                        Why Work With Me</p>
-                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I bring to a team.
+        <section id="why" class="section-block py-16 sm:py-24 lg:py-32">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="reveal-left text-center max-w-2xl mx-auto mb-14">
+                    <p class="section-label section-label-center">05 — Value</p>
+                    <h2 class="section-heading text-center font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">What I bring to a team.
                     </h2>
                 </div>
 
@@ -328,20 +329,18 @@
         </section>
 
         <!-- =================== Contact Section =================== -->
-        <section id="contact" class="py-24 sm:py-32 bg-slate-50 dark:bg-slate-900/40">
-            <div class="max-w-5xl mx-auto px-6">
+        <section id="contact" class="section-block py-16 sm:py-24 lg:py-32 bg-slate-50/80 dark:bg-slate-900/40">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="reveal text-center max-w-2xl mx-auto mb-14">
-                    <p
-                        class="text-sm font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-widest mb-3">
-                        Contact</p>
-                    <h2 class="section-heading text-center text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Let's build something
+                    <p class="section-label section-label-center">06 — Contact</p>
+                    <h2 class="section-heading text-center font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Let's build something
                         solid.</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Have a role or a project in mind? I read every
                         message.</p>
                     <span
-                        class="inline-flex items-center gap-2 mt-6 text-sm font-medium px-3 py-1.5 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400">
+                        class="status-badge inline-flex items-center gap-2 mt-6 text-sm font-medium px-3 py-1.5 rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 border border-accent-500/20">
                         <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse-dot"></span>
-                        Open to opportunities
+                        Available for hire
                     </span>
                 </div>
 
@@ -354,9 +353,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 8l9 6 9-6M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" />
                                 </svg></span>
-                            <span>
+                            <span class="min-w-0">
                                 <span class="block text-xs text-slate-500 dark:text-slate-400">Email</span>
-                                ahmedqabdulrahman123@gmail.com
+                                <span class="break-all text-sm sm:text-base">ahmedqabdulrahman123@gmail.com</span>
                             </span>
                         </a>
                         <a href="https://github.com/ahmed12334567" target="_blank" rel="noopener" class="contact-link">
@@ -365,9 +364,9 @@
                                     <path
                                         d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.42.36.79 1.07.79 2.16v3.2c0 .31.21.68.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
                                 </svg></span>
-                            <span>
+                            <span class="min-w-0">
                                 <span class="block text-xs text-slate-500 dark:text-slate-400">GitHub</span>
-                                github.com/ahmedabdulrahman
+                                <span class="break-all text-sm sm:text-base">github.com/ahmedabdulrahman</span>
                             </span>
                         </a>
                         <a href="https://www.linkedin.com/in/ahmed-abdulrahman-aa04493a1/" target="_blank" rel="noopener" class="contact-link">
@@ -376,16 +375,16 @@
                                     <path
                                         d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
                                 </svg></span>
-                            <span>
+                            <span class="min-w-0">
                                 <span class="block text-xs text-slate-500 dark:text-slate-400">LinkedIn</span>
-                                linkedin.com/ahmedabdulrahman
+                                <span class="break-all text-sm sm:text-base">linkedin.com/ahmedabdulrahman</span>
                             </span>
                         </a>
                     </div>
 
                     <!-- Contact form -->
                     <form id="contact-form" novalidate
-                        class="reveal md:col-span-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+                        class="reveal-right md:col-span-3 contact-form-card bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
                                 <label for="name" class="form-label">Name</label>
@@ -423,9 +422,14 @@
         </section>
     </main>
 
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Back to top" class="back-to-top">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
     <!-- =================== Footer =================== -->
     <footer class="border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex flex-col sm:flex-row items-center gap-4">
                 <a href="#hero" class="font-bold text-lg text-slate-900 dark:text-white">Ahmed<span
                         class="text-accent-500">.</span>Abdulrahman</a>

@@ -125,7 +125,7 @@ function renderTechStack(): void {
   grid.innerHTML = techStack
     .map(
       (t) => `
-      <div class="tech-card">
+      <div class="tech-card tilt-card shine-card">
         <img src="${t.icon}" alt="${t.name} logo" loading="lazy" />
         <span class="text-sm font-medium text-slate-700 dark:text-slate-200">${t.name}</span>
       </div>`
@@ -139,8 +139,8 @@ function renderLearning(): void {
   grid.innerHTML = learningStack
     .map(
       (l) => `
-      <div class="learning-card">
-        <div class="flex items-center justify-between">
+      <div class="learning-card tilt-card shine-card">
+        <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
           <div class="flex items-center gap-3">
             <img src="${l.icon}" alt="${l.name} logo" loading="lazy" class="w-8 h-8" />
             <span class="font-semibold text-slate-800 dark:text-slate-100">${l.name}</span>
@@ -164,21 +164,22 @@ function renderProjects(): void {
   if (!grid) return;
   grid.innerHTML = projects
     .map(
-      (p) => `
-      <article class="project-card">
+      (p, i) => `
+      <article class="project-card tilt-card shine-card">
         <div class="project-thumb">
+          <span class="project-index">0${i + 1}</span>
           ${projectGlyphs[p.glyph] ?? ''}
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white">${p.title}</h3>
+          <h3 class="text-lg font-display font-bold text-slate-900 dark:text-white">${p.title}</h3>
           <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">${p.description}</p>
           <div class="mt-4 flex flex-wrap gap-2">
             ${p.tags.map((t) => `<span class="tech-pill">${t}</span>`).join('')}
           </div>
           <div class="mt-5 flex gap-3">
-            <a href="${p.repoUrl}" target="_blank" rel="noopener" aria-label="GitHub repo" class="flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-semibold hover:border-accent-500 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.42.36.79 1.07.79 2.16v3.2c0 .31.21.68.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
-              Code
+            <a href="${p.repoUrl}" target="_blank" rel="noopener" aria-label="GitHub repo" class="project-link group flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-semibold hover:border-accent-500 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.11-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.42.36.79 1.07.79 2.16v3.2c0 .31.21.68.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
+              View Code
             </a>
           </div>
         </div>
@@ -193,9 +194,9 @@ function renderWhy(): void {
   grid.innerHTML = whyItems
     .map(
       (w) => `
-      <div class="why-card">
+      <div class="why-card tilt-card">
         <div class="why-icon-wrap">${whySvgs[w.svg] ?? ''}</div>
-        <h3 class="text-base font-bold text-slate-900 dark:text-white">${w.title}</h3>
+        <h3 class="text-base font-display font-bold text-slate-900 dark:text-white">${w.title}</h3>
         <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${w.description}</p>
       </div>`
     )
@@ -224,9 +225,19 @@ function initMobileMenu(): void {
   const btn = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
   if (!btn || !menu) return;
-  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('hidden') === false;
+    menu.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+
   menu.querySelectorAll('.mobile-link').forEach((link) =>
-    link.addEventListener('click', () => menu.classList.add('hidden'))
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    })
   );
 }
 
@@ -264,7 +275,7 @@ function initSmoothScroll(): void {
    Scroll reveal via Intersection Observer
    ========================================================= */
 function initReveal(): void {
-  const els = document.querySelectorAll('.reveal, .stagger-children');
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
   if (!('IntersectionObserver' in window)) {
     els.forEach((el) => el.classList.add('visible'));
     return;
@@ -278,7 +289,7 @@ function initReveal(): void {
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.12, rootMargin: '0px 0px -50px 0px' }
   );
   els.forEach((el) => observer.observe(el));
 }
@@ -312,14 +323,177 @@ function initProgressBars(): void {
 }
 
 /* =========================================================
+   Animated stat counters
+   ========================================================= */
+function initStatCounters(): void {
+  const counters = document.querySelectorAll<HTMLElement>('.stat-counter');
+  if (!counters.length) return;
+
+  const animate = (el: HTMLElement): void => {
+    const target = Number(el.dataset.target ?? '0');
+    const suffix = el.dataset.suffix ?? '';
+    const duration = 1600;
+    const start = performance.now();
+
+    const step = (now: number): void => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(animate);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target as HTMLElement);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  counters.forEach((c) => observer.observe(c));
+}
+
+/* =========================================================
+   Hero role text rotation
+   ========================================================= */
+function initHeroRoleTicker(): void {
+  const el = document.getElementById('hero-role');
+  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const roles = [
+    'Node.js & TypeScript',
+    'REST API Design',
+    'Database Architecture',
+    'Secure Authentication',
+  ];
+  let index = 0;
+
+  window.setInterval(() => {
+    index = (index + 1) % roles.length;
+    el.classList.add('role-fade-out');
+    window.setTimeout(() => {
+      el.textContent = roles[index];
+      el.classList.remove('role-fade-out');
+      el.classList.add('role-fade-in');
+      window.setTimeout(() => el.classList.remove('role-fade-in'), 400);
+    }, 400);
+  }, 3200);
+}
+
+/* =========================================================
+   Scroll progress bar
+   ========================================================= */
+function initScrollProgress(): void {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+
+  const update = (): void => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = progress + '%';
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+/* =========================================================
+   Back to top button
+   ========================================================= */
+function initBackToTop(): void {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* =========================================================
+   Subtle 3D tilt on interactive cards
+   ========================================================= */
+function initCardTilt(): void {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(max-width: 1023px)').matches) return;
+
+  document.querySelectorAll<HTMLElement>('.tilt-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty('--tilt-x', `${(y * -6).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${(x * 6).toFixed(2)}deg`);
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
+    });
+  });
+}
+
+/* =========================================================
    Hero entrance animations
    ========================================================= */
 function initHeroReveal(): void {
-  const heroEls = document.querySelectorAll('.hero-text-reveal, .hero-image-reveal');
-  // Trigger after a short delay so the page feels alive
-  window.setTimeout(() => {
-    heroEls.forEach((el) => el.classList.add('visible'));
-  }, 150);
+  const heroEls = document.querySelectorAll('.hero-text-reveal, .hero-image-reveal, .hero-scroll-reveal');
+  window.requestAnimationFrame(() => {
+    window.setTimeout(() => {
+      heroEls.forEach((el) => el.classList.add('visible'));
+    }, 100);
+  });
+}
+
+/* =========================================================
+   Subtle parallax on hero profile photo
+   ========================================================= */
+function initHeroParallax(): void {
+  const profile = document.getElementById('hero-profile');
+  const hero = document.getElementById('hero');
+  if (!profile || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const img = profile.querySelector<HTMLElement>('.hero-profile-img');
+  if (!img) return;
+
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    targetX = x * 10;
+    targetY = y * 10;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    targetX = 0;
+    targetY = 0;
+  });
+
+  const tick = (): void => {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+    img.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(tick);
+  };
+  tick();
 }
 
 /* =========================================================
@@ -329,17 +503,20 @@ function initHeroParticles(): void {
   const container = document.getElementById('hero-particles');
   if (!container || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const count = 20;
+  const isMobile = window.matchMedia('(max-width: 639px)').matches;
+  const count = isMobile ? 10 : 24;
+
   for (let i = 0; i < count; i++) {
     const particle = document.createElement('div');
     particle.classList.add('hero-particle');
-    const size = Math.random() * 4 + 2;
+    const size = Math.random() * 5 + 2;
     particle.style.width = size + 'px';
     particle.style.height = size + 'px';
     particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDuration = Math.random() * 15 + 10 + 's';
-    particle.style.animationDelay = Math.random() * 10 + 's';
-    particle.style.opacity = (Math.random() * 0.4 + 0.1).toString();
+    particle.style.setProperty('--drift', (Math.random() * 80 - 40).toFixed(1) + 'px');
+    particle.style.animationDuration = Math.random() * 12 + 14 + 's';
+    particle.style.animationDelay = Math.random() * 12 + 's';
+    particle.style.opacity = (Math.random() * 0.5 + 0.15).toString();
     container.appendChild(particle);
   }
 }
@@ -486,9 +663,15 @@ function boot(): void {
   initNavbarScroll();
   initSmoothScroll();
   initReveal();
+  initStatCounters();
+  initHeroRoleTicker();
+  initScrollProgress();
+  initBackToTop();
   initHeroReveal();
+  initHeroParallax();
   initHeroParticles();
   initProgressBars();
+  initCardTilt();
   initActiveNav();
   initContactForm();
   initYear();
