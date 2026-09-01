@@ -667,7 +667,6 @@ function boot(): void {
   initHeroRoleTicker();
   initScrollProgress();
   initBackToTop();
-  initHeroReveal();
   initHeroParallax();
   initHeroParticles();
   initProgressBars();
